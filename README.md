@@ -1,6 +1,6 @@
 # project_tldr.py
 
-This is an example python script to provide a tl,dr; of all or some of the projects in an organization, allowing one to filter by integration type and/or tag. It will generate a csv [like this](https://gist.github.com/mrzarquon/1bd4df637511f73ddb40d2aae4d3481c)
+This is an example python script to provide a tl,dr; of all or some of the projects in an organization, allowing one to filter by integration type and/or tag. It will generate a csv [like this](example_output.csv)
 
 ## Requirements
 
@@ -79,7 +79,7 @@ If you only have Docker and want to do this quickly, build this script into a co
    Saving 63 projects data to output/all_state.csv
    ```
 
-3. An example output.csv should look something [like this](https://gist.github.com/mrzarquon/1bd4df637511f73ddb40d2aae4d3481c):
+3. An example output.csv should look something [like this](example_output.csv)
 
 ## Running with Python3 (pip version)
 
