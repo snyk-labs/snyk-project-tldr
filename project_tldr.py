@@ -7,6 +7,8 @@ from os import environ
 from snyk import SnykClient
 from snykv3 import SnykV3Client
 
+import snyk
+
 snyk_token = environ["SNYK_TOKEN"]
 
 SCM_REPOS = (
@@ -67,8 +69,11 @@ def build_csv(org_id, int_name, csv_file, tags, snyk_token):
         for project in get_all_projects(org_id, clientv3, tags, target):
             proj_attr = project["attributes"]
             proj_attr["repoName"] = target["attributes"]["displayName"]
-            v1_data = get_project_data(org_id, project["id"], clientv1)
-            the_data.append(proj_attr | v1_data)
+            try:
+              v1_data = get_project_data(org_id, project["id"], clientv1)
+              the_data.append(proj_attr | v1_data)
+            except snyk.errors.SnykHTTPError as error:
+              print(f"Error retrieving project, skipping...")
 
     headers = [i for i in the_data[0].keys()]
 
