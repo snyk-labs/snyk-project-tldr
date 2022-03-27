@@ -1,10 +1,10 @@
 # project_tldr.py
 
-This is an example python script to provide a tl,dr; of all or some of the projects in an organization, allowing one to filter by integration type and/or tag. It will generate a csv [like this](example_output.csv)
+This is an example python script to provide a tl;dr of all or some of the projects in a Snyk Organization or Group, allowing one to filter by integration type and/or tag. It will generate a csv [like this](example_output.csv)
 
 ## Requirements
 
-In order to run this script one needs a python environment with the Snyk, Github, and Typer libraries. Use the provided Dockerfile to build and run a container with this script setup in it. Refer to the [Docker](#user-content-running-with-docker) section for more information.
+This script requires a python environment with the Snyk, Github, and Typer libraries. Use the provided Dockerfile to build and run a container with this script setup in it. Refer to the [Docker](#user-content-running-with-docker) section for more information.
 
 ### Snyk Requirements
 
@@ -13,19 +13,20 @@ In order to run this script one needs a python environment with the Snyk, Github
 
 ### Environment Variables
 
-While you can pass the Snyk token as commandline arguments to the script, it is best to use them as environment variables so they aren't stored in your workstation's command history.
+While you can pass the Snyk token as a command-line argument to the script, it is best to use them as environment variables so they aren't stored in your workstation's command history.
 
 Use [example_secrets.sh](example_secrets.sh) if you need a simple way to copy/paste your token into a file and then load them into your environment for use.
 
 ```shell
 ❯ python3 project_tldr.py -h
-usage: project_tldr.py [-h] --org-id ORG_ID [--integration INTEGRATION] [--csv-file CSV_FILE] [--tags TAGS [TAGS ...]]
+usage: project_tldr.py [-h] [--org-id ORG_ID] [--group-id GROUP_ID] [--integration INTEGRATION] [--csv-file CSV_FILE] [--tags TAGS [TAGS ...]]
 
-Generate a CSV of projects in a Snyk Organization
+Generate a CSV of projects in a Snyk Organization or a set of CSVs of projects for each Organization in a Group
 
 optional arguments:
   -h, --help            show this help message and exit
   --org-id ORG_ID       The organization ID from the Org's Setting panel
+  --group-id GROUP_ID   The group ID from the Group's Settings panel
   --integration INTEGRATION
                         Integration Name: bitbucket-cloud, github-enterprise, etc.
   --csv-file CSV_FILE   Complete path/to/file.csv to write the summary to: default output/$(integration-name)_state.csv
