@@ -9,7 +9,9 @@ This script requires a python environment with the Snyk, Github, and Typer libra
 ### Snyk Requirements
 
 - Snyk Access Token: Either generate an service account token or [retrieve your own](https://docs.snyk.io/snyk-api-info/authentication-for-api)
-- Snyk Org IDs: Available under the Settings view of the Org [app.snyk.io](https://app.snyk.io/)
+- One of the following
+  - Snyk Org ID: Available under the Settings view of the Org on [app.snyk.io](https://app.snyk.io/)
+  - Snyk Group ID: Available under the Group Settings view of the Group on [app.snyk.io](https://app.snyk.io/)
 
 ### Environment Variables
 
