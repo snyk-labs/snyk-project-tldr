@@ -1,5 +1,5 @@
 # now we create our final container, runtime
-FROM python:3.9-slim AS runtime
+FROM python:3.14.0rc1-slim AS runtime
 
 WORKDIR /app
 
